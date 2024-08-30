@@ -1,0 +1,946 @@
+{
+     "displayMode": 1,
+     "lists": {
+          "40M Contacts": {
+               "bookmarks": {
+                    "7137": {
+                         "bandwidth": 3178.086181640625,
+                         "frequency": 7137000.0,
+                         "mode": 6
+                    },
+                    "7146": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7146000.0,
+                         "mode": 6
+                    },
+                    "7157": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7157000.0,
+                         "mode": 6
+                    },
+                    "7163": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7163000.0,
+                         "mode": 6
+                    },
+                    "7166": {
+                         "bandwidth": 3178.086181640625,
+                         "frequency": 7166000.0,
+                         "mode": 6
+                    },
+                    "7185": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7185000.0,
+                         "mode": 6
+                    },
+                    "7189": {
+                         "bandwidth": 3178.086181640625,
+                         "frequency": 7189000.0,
+                         "mode": 6
+                    },
+                    "7200": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7200000.0,
+                         "mode": 6
+                    },
+                    "7213": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7213000.0,
+                         "mode": 6
+                    },
+                    "7220": {
+                         "bandwidth": 3178.086181640625,
+                         "frequency": 7220000.0,
+                         "mode": 6
+                    },
+                    "7229": {
+                         "bandwidth": 3178.086181640625,
+                         "frequency": 7228500.0,
+                         "mode": 6
+                    },
+                    "7244": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7244000.0,
+                         "mode": 6
+                    },
+                    "7248": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7248000.0,
+                         "mode": 6
+                    },
+                    "7256": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7256000.0,
+                         "mode": 6
+                    },
+                    "7267": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7267000.0,
+                         "mode": 6
+                    },
+                    "7272": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7272000.0,
+                         "mode": 6
+                    },
+                    "7275": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7275000.0,
+                         "mode": 6
+                    },
+                    "7283": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7283000.0,
+                         "mode": 6
+                    },
+                    "7288": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7288000.0,
+                         "mode": 6
+                    },
+                    "7295": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7295000.0,
+                         "mode": 6
+                    },
+                    "CW": {
+                         "bandwidth": 1682.8841552734375,
+                         "frequency": 7048200.0,
+                         "mode": 6
+                    },
+                    "Calling": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7290000.0,
+                         "mode": 6
+                    }
+               },
+               "color": {
+                    "blue": 216,
+                    "green": 90,
+                    "red": 90
+               },
+               "showOnWaterfall": true
+          },
+          "ATC": {
+               "bookmarks": {
+                    "Clark County AV Repeater": {
+                         "bandwidth": 6650.828125,
+                         "frequency": 126375000.0,
+                         "mode": 2
+                    },
+                    "KLEX Approach": {
+                         "bandwidth": 15000.0,
+                         "frequency": 120150000.0,
+                         "mode": 2
+                    },
+                    "KLEX Departure": {
+                         "bandwidth": 15000.0,
+                         "frequency": 120750000.0,
+                         "mode": 2
+                    },
+                    "RCAG 128.225": {
+                         "bandwidth": 6650.828125,
+                         "frequency": 128225000.0,
+                         "mode": 2
+                    }
+               },
+               "color": {
+                    "blue": 0,
+                    "green": 255,
+                    "red": 255
+               },
+               "showOnWaterfall": true
+          },
+          "Band Markers": {
+               "bookmarks": {
+                    "10M HAM": {
+                         "bandwidth": 15000.0,
+                         "frequency": 28001760.0,
+                         "mode": 2
+                    },
+                    "12M HAM": {
+                         "bandwidth": 15000.0,
+                         "frequency": 24891720.0,
+                         "mode": 2
+                    },
+                    "20M HAM": {
+                         "bandwidth": 1409.0813588682656,
+                         "frequency": 14152700.0,
+                         "mode": 6
+                    },
+                    "2200M": {
+                         "bandwidth": 500.0,
+                         "frequency": 135700.0,
+                         "mode": 4
+                    },
+                    "2M National Calling": {
+                         "bandwidth": 9783.4736328125,
+                         "frequency": 144200000.0,
+                         "mode": 0
+                    },
+                    "2M Simplex Calling": {
+                         "bandwidth": 15000.0,
+                         "frequency": 146520000.0,
+                         "mode": 0
+                    },
+                    "30M HAM": {
+                         "bandwidth": 2682.99951171875,
+                         "frequency": 10100000.0,
+                         "mode": 4
+                    },
+                    "40M HAM": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7000000.0,
+                         "mode": 6
+                    },
+                    "6M HAM": {
+                         "bandwidth": 15000.0,
+                         "frequency": 53458980.0,
+                         "mode": 2
+                    },
+                    "70CM HAM": {
+                         "bandwidth": 8743.962108459717,
+                         "frequency": 420047500.0,
+                         "mode": 6
+                    },
+                    "80M HAM": {
+                         "bandwidth": 3213.9591046031805,
+                         "frequency": 3500000.0,
+                         "mode": 6
+                    },
+                    "CB": {
+                         "bandwidth": 15000.0,
+                         "frequency": 26963930.0,
+                         "mode": 2
+                    },
+                    "Technician Voice End": {
+                         "bandwidth": 9783.4736328125,
+                         "frequency": 28500000.0,
+                         "mode": 0
+                    },
+                    "Technician Voice Start": {
+                         "bandwidth": 9783.4736328125,
+                         "frequency": 28300000.0,
+                         "mode": 0
+                    }
+               },
+               "color": {
+                    "blue": 128,
+                    "green": 255,
+                    "red": 0
+               },
+               "showOnWaterfall": true
+          },
+          "Band Plans": {
+               "bookmarks": {
+                    "10M Beacon": {
+                         "bandwidth": 12564.6220703125,
+                         "frequency": 28200000.0,
+                         "mode": 0
+                    },
+                    "160M Beacon": {
+                         "bandwidth": 500.0,
+                         "frequency": 1999000.0,
+                         "mode": 4
+                    },
+                    "160M CW": {
+                         "bandwidth": 500.0,
+                         "frequency": 1800000.0,
+                         "mode": 5
+                    },
+                    "160M CW QRP": {
+                         "bandwidth": 500.0,
+                         "frequency": 1810000.0,
+                         "mode": 5
+                    },
+                    "160M SSB QRP": {
+                         "bandwidth": 500.0,
+                         "frequency": 1910000.0,
+                         "mode": 4
+                    },
+                    "160M SSB/SSTV": {
+                         "bandwidth": 500.0,
+                         "frequency": 1843000.0,
+                         "mode": 4
+                    },
+                    "23CM ATV 1": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 1240000000.0,
+                         "mode": 6
+                    },
+                    "23CM ATV 2": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 1252000000.0,
+                         "mode": 6
+                    },
+                    "23CM ATV 3": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 1276000000.0,
+                         "mode": 6
+                    },
+                    "23CM CW": {
+                         "bandwidth": 2936.171630859375,
+                         "frequency": 1296800000.0,
+                         "mode": 0
+                    },
+                    "23CM FM Simplex": {
+                         "bandwidth": 2936.171630859375,
+                         "frequency": 1294000000.0,
+                         "mode": 0
+                    },
+                    "23CM Narrow Band": {
+                         "bandwidth": 2936.171630859375,
+                         "frequency": 1295000000.0,
+                         "mode": 0
+                    },
+                    "2M CW": {
+                         "bandwidth": 500.0,
+                         "frequency": 144100000.0,
+                         "mode": 5
+                    },
+                    "2M National Calling": {
+                         "bandwidth": 2400.0,
+                         "frequency": 144200000.0,
+                         "mode": 0
+                    },
+                    "30M Packet": {
+                         "bandwidth": 2800.0,
+                         "frequency": 10140000.0,
+                         "mode": 4
+                    },
+                    "30M RTTY": {
+                         "bandwidth": 2800.0,
+                         "frequency": 10130000.0,
+                         "mode": 6
+                    },
+                    "33CM CW/SSB": {
+                         "bandwidth": 2936.171630859375,
+                         "frequency": 902075000.0,
+                         "mode": 6
+                    },
+                    "33CM FM/DIGITAL": {
+                         "bandwidth": 2936.171630859375,
+                         "frequency": 902175000.0,
+                         "mode": 0
+                    },
+                    "40M RTTY DTA": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7125000.0,
+                         "mode": 6
+                    },
+                    "40M SSTV": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 7171000.0,
+                         "mode": 6
+                    },
+                    "60M 1346.5 CW": {
+                         "bandwidth": 500.0,
+                         "frequency": 5348000.0,
+                         "mode": 5
+                    },
+                    "60M 1357.5CW": {
+                         "bandwidth": 500.0,
+                         "frequency": 5359000.0,
+                         "mode": 5
+                    },
+                    "60M 5330.5 CW": {
+                         "bandwidth": 500.0,
+                         "frequency": 5332000.0,
+                         "mode": 5
+                    },
+                    "60M 5330.5KHz": {
+                         "bandwidth": 2800.0,
+                         "frequency": 5330500.0,
+                         "mode": 4
+                    },
+                    "60M 5346.5KHz": {
+                         "bandwidth": 2800.0,
+                         "frequency": 5346500.0,
+                         "mode": 4
+                    },
+                    "60M 5357.5KHz": {
+                         "bandwidth": 2800.0,
+                         "frequency": 5357500.0,
+                         "mode": 4
+                    },
+                    "60M 5371.5 CW": {
+                         "bandwidth": 500.0,
+                         "frequency": 5373000.0,
+                         "mode": 5
+                    },
+                    "60M 5371.5MHz": {
+                         "bandwidth": 2800.0,
+                         "frequency": 5371500.0,
+                         "mode": 4
+                    },
+                    "60M 5403.5 CW": {
+                         "bandwidth": 500.0,
+                         "frequency": 5405000.0,
+                         "mode": 5
+                    },
+                    "60M 5403.5MHz": {
+                         "bandwidth": 2800.0,
+                         "frequency": 5403500.0,
+                         "mode": 4
+                    },
+                    "70M CW": {
+                         "bandwidth": 500.0,
+                         "frequency": 432070000.0,
+                         "mode": 5
+                    },
+                    "70M Calling": {
+                         "bandwidth": 2936.171630859375,
+                         "frequency": 432100000.0,
+                         "mode": 0
+                    },
+                    "70M Earth Moon Earth": {
+                         "bandwidth": 2936.171630859375,
+                         "frequency": 432000000.0,
+                         "mode": 0
+                    },
+                    "70M Satellite": {
+                         "bandwidth": 500.0,
+                         "frequency": 435000000.0,
+                         "mode": 5
+                    },
+                    "70M Satellite End": {
+                         "bandwidth": 500.0,
+                         "frequency": 438000000.0,
+                         "mode": 5
+                    },
+                    "80M Calling": {
+                         "bandwidth": 9873.1787109375,
+                         "frequency": 3885000.0,
+                         "mode": 2
+                    },
+                    "80M DX Window": {
+                         "bandwidth": 500.0,
+                         "frequency": 3790000.0,
+                         "mode": 4
+                    },
+                    "80M RTTY DTA End": {
+                         "bandwidth": 500.0,
+                         "frequency": 3600000.0,
+                         "mode": 4
+                    },
+                    "80M RTTY/DTA": {
+                         "bandwidth": 500.0,
+                         "frequency": 3570000.0,
+                         "mode": 4
+                    },
+                    "80M SSTV": {
+                         "bandwidth": 500.0,
+                         "frequency": 3845000.0,
+                         "mode": 4
+                    }
+               },
+               "color": {
+                    "blue": 200,
+                    "green": 255,
+                    "red": 0
+               },
+               "showOnWaterfall": true
+          },
+          "Commercial Radio": {
+               "bookmarks": {
+                    "101.5 (Richmond)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 101500000.0,
+                         "mode": 1
+                    },
+                    "102.5 Mirror": {
+                         "bandwidth": 250000.0,
+                         "frequency": 100600000.0,
+                         "mode": 1
+                    },
+                    "103.3 (Georgetown)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 103300000.0,
+                         "mode": 1
+                    },
+                    "103.9 (Christian?) ": {
+                         "bandwidth": 250000.0,
+                         "frequency": 103900000.0,
+                         "mode": 1
+                    },
+                    "104.5 The Cat (Lexington)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 104500000.0,
+                         "mode": 1
+                    },
+                    "105.5 Country (Mt Sterling)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 105500000.0,
+                         "mode": 1
+                    },
+                    "107.1 Christian (Wilmore)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 107110000.0,
+                         "mode": 1
+                    },
+                    "96.1 (Paris)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 96100000.0,
+                         "mode": 1
+                    },
+                    "96.9 KISS (Stamping Ground)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 96900000.0,
+                         "mode": 1
+                    },
+                    "98.1 The Bull (Lexington)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 98100000.0,
+                         "mode": 1
+                    },
+                    "98.5 Bull  ICONS  (Lexinfton)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 98500000.0,
+                         "mode": 1
+                    },
+                    "Cyote Country (Irvine)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 101700000.0,
+                         "mode": 1
+                    },
+                    "Hits 106.3 (Versailles)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 106300000.0,
+                         "mode": 1
+                    },
+                    "Hot 1025 (Nicholasville)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 102500000.0,
+                         "mode": 1
+                    },
+                    "Just Radio 105.9 (Birgin)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 105900000.0,
+                         "mode": 1
+                    },
+                    "K-LOVE (Wilmore)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 95300000.0,
+                         "mode": 1
+                    },
+                    "MIX 94.5 (Lexington)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 94500000.0,
+                         "mode": 1
+                    },
+                    "Relevant Radio 1380 WMJR (Nicholasville)": {
+                         "bandwidth": 9592.5400390625,
+                         "frequency": 1380000.0,
+                         "mode": 2
+                    },
+                    "Second 102.5 Mirror": {
+                         "bandwidth": 250000.0,
+                         "frequency": 101100000.0,
+                         "mode": 1
+                    },
+                    "The Beat (Midway)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 107900000.0,
+                         "mode": 1
+                    },
+                    "WBVX (Carlisle)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 92100000.0,
+                         "mode": 1
+                    },
+                    "WCGW (Lexington)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 93300000.0,
+                         "mode": 1
+                    },
+                    "WEKU (Richmond)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 88900000.0,
+                         "mode": 1
+                    },
+                    "WJMM (Keene)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 99100000.0,
+                         "mode": 1
+                    },
+                    "WKQQ 100.1 (Winchester)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 100100000.0,
+                         "mode": 1
+                    },
+                    "WKVO (Georgetown)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 89900000.0,
+                         "mode": 1
+                    },
+                    "WLAI (Winchester)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 96500000.0,
+                         "mode": 1
+                    },
+                    "WMJR (Lexington)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 94900000.0,
+                         "mode": 1
+                    },
+                    "WRFL (Lexington)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 88100000.0,
+                         "mode": 1
+                    },
+                    "WTF 97 (Lexington)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 97700000.0,
+                         "mode": 1
+                    },
+                    "WUKY (Lexington)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 91300000.0,
+                         "mode": 1
+                    },
+                    "WVLK K93 (Lexington)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 92900000.0,
+                         "mode": 1
+                    },
+                    "WXCN (Lexington)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 99550000.0,
+                         "mode": 1
+                    },
+                    "WZXI (Lancaster)": {
+                         "bandwidth": 250000.0,
+                         "frequency": 94100000.0,
+                         "mode": 1
+                    }
+               },
+               "color": {
+                    "blue": 128,
+                    "green": 0,
+                    "red": 0
+               },
+               "showOnWaterfall": true
+          },
+          "FCC 73 F": {
+               "bookmarks": {
+                    "7475": {
+                         "bandwidth": 6650.827945482243,
+                         "frequency": 7475010.0,
+                         "mode": 2
+                    },
+                    "7490": {
+                         "bandwidth": 6650.827945482243,
+                         "frequency": 7490030.0,
+                         "mode": 2
+                    },
+                    "7505": {
+                         "bandwidth": 6650.827945482243,
+                         "frequency": 7505130.0,
+                         "mode": 2
+                    },
+                    "7520": {
+                         "bandwidth": 6650.827945482243,
+                         "frequency": 7520030.0,
+                         "mode": 2
+                    },
+                    "7535": {
+                         "bandwidth": 6650.827945482243,
+                         "frequency": 7535130.0,
+                         "mode": 2
+                    },
+                    "7550": {
+                         "bandwidth": 6650.827945482243,
+                         "frequency": 7550340.0,
+                         "mode": 2
+                    },
+                    "7570": {
+                         "bandwidth": 6650.827945482243,
+                         "frequency": 7570140.0,
+                         "mode": 2
+                    }
+               },
+               "color": {
+                    "blue": 86,
+                    "green": 143,
+                    "red": 181
+               },
+               "showOnWaterfall": true
+          },
+          "General": {
+               "bookmarks": {
+                    "Digital Voice 1": {
+                         "bandwidth": 11000.0,
+                         "frequency": 451151200.0,
+                         "mode": 0
+                    },
+                    "Digital Voice 2": {
+                         "bandwidth": 33293.23046875,
+                         "frequency": 451461000.0,
+                         "mode": 0
+                    },
+                    "Digital Voice 3": {
+                         "bandwidth": 11000.0,
+                         "frequency": 452051900.0,
+                         "mode": 0
+                    },
+                    "RTL SDR Max": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 1766000000.0,
+                         "mode": 6
+                    },
+                    "RTL SDR Min": {
+                         "bandwidth": 3189.086181640625,
+                         "frequency": 500000.0,
+                         "mode": 6
+                    },
+                    "Strange Pager": {
+                         "bandwidth": 32887.30791760355,
+                         "frequency": 152480000.0,
+                         "mode": 0
+                    },
+                    "Unknown Pulse": {
+                         "bandwidth": 11000.0,
+                         "frequency": 451912000.0,
+                         "mode": 0
+                    },
+                    "Unknown Signal": {
+                         "bandwidth": 4643.6826171875,
+                         "frequency": 143561700.0,
+                         "mode": 6
+                    },
+                    "WRMI Florida?": {
+                         "bandwidth": 12662.153203898886,
+                         "frequency": 9395120.0,
+                         "mode": 2
+                    }
+               },
+               "color": {
+                    "blue": 255,
+                    "green": 255,
+                    "red": 0
+               },
+               "showOnWaterfall": true
+          },
+          "International 11.6-12.1": {
+               "bookmarks": {
+                    "11.61 (Arabic/Chinese)": {
+                         "bandwidth": 7213.133018318888,
+                         "frequency": 11610030.0,
+                         "mode": 2
+                    },
+                    "11.76 (Cuba)": {
+                         "bandwidth": 4496.4150390625,
+                         "frequency": 11760050.0,
+                         "mode": 2
+                    },
+                    "11.780 (Brazil)": {
+                         "bandwidth": 6694.7373046875,
+                         "frequency": 11780010.0,
+                         "mode": 2
+                    },
+                    "11.785 (Turkey)": {
+                         "bandwidth": 6694.7373046875,
+                         "frequency": 11785070.0,
+                         "mode": 2
+                    },
+                    "11.8 (Romania)": {
+                         "bandwidth": 6694.7373046875,
+                         "frequency": 11800010.0,
+                         "mode": 2
+                    },
+                    "WCBQ": {
+                         "bandwidth": 12650.228760971258,
+                         "frequency": 9330110.0,
+                         "mode": 2
+                    }
+               },
+               "color": {
+                    "blue": 90,
+                    "green": 90,
+                    "red": 255
+               },
+               "showOnWaterfall": true
+          },
+          "NOAA": {
+               "bookmarks": {
+                    "NOAA": {
+                         "bandwidth": 5529.333356789783,
+                         "frequency": 162400000.0,
+                         "mode": 0
+                    },
+                    "NOAA  18": {
+                         "bandwidth": 203745.3125,
+                         "frequency": 137912550.0,
+                         "mode": 1
+                    },
+                    "NOAA 15": {
+                         "bandwidth": 203745.3125,
+                         "frequency": 137620000.0,
+                         "mode": 1
+                    },
+                    "NOAA 19": {
+                         "bandwidth": 203745.3125,
+                         "frequency": 137100000.0,
+                         "mode": 1
+                    },
+                    "NOAA rebroadcast": {
+                         "bandwidth": 18152.577832397004,
+                         "frequency": 159200000.0,
+                         "mode": 0
+                    },
+                    "Weatherfax  New Orleans": {
+                         "bandwidth": 5179.971765231363,
+                         "frequency": 12787900.0,
+                         "mode": 4
+                    },
+                    "Weatherfax BOSTON": {
+                         "bandwidth": 5179.9716796875,
+                         "frequency": 12750000.0,
+                         "mode": 4
+                    }
+               },
+               "color": {
+                    "blue": 255,
+                    "green": 192,
+                    "red": 128
+               },
+               "showOnWaterfall": true
+          },
+          "RC Channels": {
+               "bookmarks": {
+                    "RC Ch00": {
+                         "bandwidth": 15000.0,
+                         "frequency": 50800000.0,
+                         "mode": 2
+                    },
+                    "RC Ch01": {
+                         "bandwidth": 15000.0,
+                         "frequency": 50820000.0,
+                         "mode": 2
+                    },
+                    "RC Ch02": {
+                         "bandwidth": 15000.0,
+                         "frequency": 50840000.0,
+                         "mode": 2
+                    },
+                    "RC Ch03": {
+                         "bandwidth": 15000.0,
+                         "frequency": 50860000.0,
+                         "mode": 2
+                    },
+                    "RC Ch04": {
+                         "bandwidth": 15000.0,
+                         "frequency": 50880000.0,
+                         "mode": 2
+                    },
+                    "RC Ch05": {
+                         "bandwidth": 15000.0,
+                         "frequency": 50900000.0,
+                         "mode": 2
+                    },
+                    "RC Ch06": {
+                         "bandwidth": 15000.0,
+                         "frequency": 50920000.0,
+                         "mode": 2
+                    },
+                    "RC Ch07": {
+                         "bandwidth": 15000.0,
+                         "frequency": 50940000.0,
+                         "mode": 2
+                    },
+                    "RC Ch08": {
+                         "bandwidth": 15000.0,
+                         "frequency": 50960000.0,
+                         "mode": 2
+                    },
+                    "RC Ch09": {
+                         "bandwidth": 15000.0,
+                         "frequency": 50980000.0,
+                         "mode": 2
+                    }
+               },
+               "color": {
+                    "blue": 255,
+                    "green": 255,
+                    "red": 128
+               },
+               "showOnWaterfall": true
+          },
+          "Repeaters": {
+               "bookmarks": {
+                    "Lexington 70CM Repeater": {
+                         "bandwidth": 12564.62190928099,
+                         "frequency": 442762500.0,
+                         "mode": 0
+                    },
+                    "Lexington Financial Center Repeater": {
+                         "bandwidth": 11886.219500800782,
+                         "frequency": 146940000.0,
+                         "mode": 0
+                    },
+                    "Shelbyville 70CM Repeater": {
+                         "bandwidth": 2400.0,
+                         "frequency": 444050000.0,
+                         "mode": 0
+                    },
+                    "Shelbyville Repeater": {
+                         "bandwidth": 10869.864535473309,
+                         "frequency": 147000000.0,
+                         "mode": 0
+                    },
+                    "UK 2M repeater": {
+                         "bandwidth": 15000.0,
+                         "frequency": 145250385.0,
+                         "mode": 2
+                    },
+                    "WKYT Repeater": {
+                         "bandwidth": 9783.4736328125,
+                         "frequency": 146760000.0,
+                         "mode": 0
+                    }
+               },
+               "color": {
+                    "blue": 89,
+                    "green": 189,
+                    "red": 102
+               },
+               "showOnWaterfall": true
+          },
+          "Shortwave Stations": {
+               "bookmarks": {
+                    "Overcomer Ministry (TN)": {
+                         "bandwidth": 9860.09569884464,
+                         "frequency": 7520000.0,
+                         "mode": 2
+                    },
+                    "Radio Marti (ES)": {
+                         "bandwidth": 6849.778290830608,
+                         "frequency": 7335080.0,
+                         "mode": 2
+                    },
+                    "Vatican Radio (Greenville B)": {
+                         "bandwidth": 6849.778290830608,
+                         "frequency": 7305050.0,
+                         "mode": 2
+                    },
+                    "Voice of America Greenville B": {
+                         "bandwidth": 9592.540305984005,
+                         "frequency": 7365070.0,
+                         "mode": 2
+                    },
+                    "WWCR Overcomer": {
+                         "bandwidth": 3977.867663391814,
+                         "frequency": 6115000.0,
+                         "mode": 2
+                    }
+               },
+               "color": {
+                    "blue": 90,
+                    "green": 189,
+                    "red": 215
+               },
+               "showOnWaterfall": true
+          }
+     },
+     "selectedList": "Repeaters"
+}
