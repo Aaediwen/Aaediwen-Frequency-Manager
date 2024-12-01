@@ -37,6 +37,8 @@ class aaed_freq_manager : public ModuleManager::Instance {
                this->exportDialog=0;
                loadConfig();
                this->tempvals.editNameStr=new std::string;
+               this->tempvals.scanning=0;
+               this->tempvals.scan_index=0;
                fftRedrawHandler.ctx = this;
                fftRedrawHandler.handler = fftRedraw;
                   
@@ -143,19 +145,30 @@ class aaed_freq_manager : public ModuleManager::Instance {
               struct category* next;
 
           };
-
+          struct scanner {
+               int linger;
+               int hold;
+               int threshold;
+          };
+          
           struct  {
                std::string *editNameStr;
                struct color color;
                float rgbf[3];
                struct frequency *bookmark;
                struct frequency temp_freq;
+               struct frequency *scanning;
+               struct frequency *scan_index;
+               int tune_time;
+               int linger_time;
+               float squelch;
           } tempvals;
 
           struct config {
               display_mode displayMode;
               struct category *lists;
               struct category *selected;
+              struct scanner  scanner;
           };
           
           pfd::open_file* importDialog;
@@ -199,6 +212,9 @@ class aaed_freq_manager : public ModuleManager::Instance {
                json data = json({});
                data["displayMode"]=DISP_MODE_TOP;
                data["selectedList"]=aaedcfg->selected->name.c_str();
+               data["Scanner"]["Linger"]=aaedcfg->scanner.linger;
+               data["Scanner"]["Hold"]=aaedcfg->scanner.hold;
+               data["Scanner"]["Threshold"]=aaedcfg->scanner.threshold;
                while (current_list) {
                     data["lists"][current_list->name.c_str()]["showOnWaterfall"]=true;
                     data["lists"][current_list->name.c_str()]["color"]["red"] = current_list->color.r;
@@ -229,6 +245,19 @@ class aaed_freq_manager : public ModuleManager::Instance {
                return;
           }
 
+/*          static int get_max(float*data, double center, int width) {
+          
+               float max = -INFINITY;
+               int xmin=0;
+               int xmax=width;
+               for (int x=xmin ; x < xmax; x++) {
+                    if (data[x] > max) {
+                         max = data[0];
+                    }
+               }
+               return max;
+          }
+*/
           void loadConfig() {
       //  	init the basic config struct
                 struct category *current;
@@ -239,10 +268,15 @@ class aaed_freq_manager : public ModuleManager::Instance {
                 } else {
                      aaedcfg=new (struct config);
                 }
-				aaedcfg->selected=0;
+		aaedcfg->selected=0;
                 aaedcfg->lists=0;
-				aaedcfg->displayMode=DISP_MODE_TOP;
+		aaedcfg->displayMode=DISP_MODE_TOP;
+		aaedcfg->scanner.linger=100;
+		aaedcfg->scanner.hold=0;
+		aaedcfg->scanner.threshold=30;
                 tempvals.bookmark=0;
+                tempvals.scanning=0;
+                tempvals.scan_index=0;
                 // read the source JSON
                 std::ifstream f((core::args["root"].s() + "/aaed_freq_manager_config.json"));
                 if (f.good()) {
@@ -257,8 +291,18 @@ class aaed_freq_manager : public ModuleManager::Instance {
                  }
                  if (goodread) {
                      
-                
-
+                     // load scanner settings
+                     if (data.contains("Scanner")) {
+                          if (data["Scanner"].contains("Linger")) {
+                               aaedcfg->scanner.linger=data["Scanner"]["Linger"];
+                          }
+                          if (data["Scanner"].contains("Hold")) {
+                               aaedcfg->scanner.hold=data["Scanner"]["Hold"];
+                          }
+                          if (data["Scanner"].contains("Linger")) {
+                               aaedcfg->scanner.threshold=data["Scanner"]["Threshold"];
+                          }
+                     }
                      // load display mode
                      if (data.contains("DisplayMode")) {
                           aaedcfg->displayMode=data["displayMode"];
@@ -319,6 +363,7 @@ class aaed_freq_manager : public ModuleManager::Instance {
                                if (!(listName.compare(data["selectedList"]))) {
                                     aaedcfg->selected=current;
                                     tempvals.bookmark=current->frequencies;
+                                    tempvals.scanning=0;
                                }
                                r=255;
                                g=255;
@@ -624,7 +669,9 @@ class aaed_freq_manager : public ModuleManager::Instance {
                double editFreqBuf;
                double editBwBuf;
                int editModeBuf;
+               struct scanner scannerbuf;
                float editColBuf[3];
+               std::chrono::time_point timenow = std::chrono::high_resolution_clock::now();
 
                aaed_freq_manager* _this = (aaed_freq_manager*)ctx;
 
@@ -637,6 +684,8 @@ class aaed_freq_manager : public ModuleManager::Instance {
                               if (ImGui::Selectable(current_list->name.c_str(), is_selected)) {
                                    _this->aaedcfg->selected = current_list;
                                    _this->tempvals.bookmark=current_list->frequencies;
+                                   _this->tempvals.scanning=0;
+                                   
                               }
                          }
                          current_list=current_list->next;
@@ -653,12 +702,14 @@ class aaed_freq_manager : public ModuleManager::Instance {
                // RELOAD CONFIG BUTTON
                ImGui::SameLine();
                if (ImGui::Button(("Reload##_aaed_mgr_reload_cfg_" + _this->name).c_str())) {
+                    _this->tempvals.scanning=0;
                     _this->loadConfig();
                }
 
                // ADD LIST BUTTON
                ImGui::Separator();
                if (ImGui::Button(("New##_aaed_mgr_new_lst_" + _this->name).c_str())) {
+                    _this->tempvals.scanning=0;
                     // search for a valid NEW LIST name
                     int new_index=0;
                     std::string temp;
@@ -761,6 +812,7 @@ class aaed_freq_manager : public ModuleManager::Instance {
                bool deleteopen;
                size = ImVec2( 40.0f, 20.0f );
                if (ImGui::Button(("Delete##_aaed_mgr_del_lst_" + _this->name).c_str())) {
+                    _this->tempvals.scanning=0;
                     ImGui::OpenPopup("list_delete_conf");
                }
                
@@ -823,6 +875,7 @@ class aaed_freq_manager : public ModuleManager::Instance {
                if (ImGui::Button(("New##_aaed_mgr_new_bkm_" + _this->name).c_str())) {
                     struct frequency* new_bookmark;
                     new_bookmark = new struct frequency;
+                    _this->tempvals.scanning=0;
                     std::cout << "adding bookmark  \n";
                     if (_this->tempvals.bookmark) {
                          std::cout << "After bookmark" << _this->tempvals.bookmark->name.c_str()  << "\n";
@@ -883,6 +936,7 @@ class aaed_freq_manager : public ModuleManager::Instance {
                }
                ImGui::SameLine();
                if (ImGui::Button(("Edit##_aaed_mgr_edit_bkm_" + _this->name).c_str())) {
+                    _this->tempvals.scanning=0;
                     _this->tempvals.temp_freq.name=_this->tempvals.bookmark->name;
                     _this->tempvals.temp_freq.frequency=_this->tempvals.bookmark->frequency;
                     _this->tempvals.temp_freq.mode=_this->tempvals.bookmark->mode;
@@ -978,6 +1032,7 @@ class aaed_freq_manager : public ModuleManager::Instance {
                // DELETE BOOKMARK BUTTON
                ImGui::SameLine();
                if (ImGui::Button(("Delete##_aaed_mgr_delete_bkm_" + _this->name).c_str())) {
+                    _this->tempvals.scanning=0;
                     ImGui::OpenPopup("book_delete_conf");
                }
                
@@ -1007,6 +1062,122 @@ class aaed_freq_manager : public ModuleManager::Instance {
                     style::endDisabled();
                }
          
+               // SCANNINGBUTTON
+               ImGui::SameLine();
+               if (ImGui::Button(("Scan##_aaed_mgr_scan_ctrl_" + _this->name).c_str())) {
+                    std::string selected_radio = gui::waterfall.selectedVFO;
+                    if (selected_radio.empty()) {
+                         selected_radio="Radio";
+                    }
+
+                    if (_this->tempvals.scanning) {
+                         _this->tempvals.scanning=0;
+                         core::modComManager.callInterface(selected_radio.c_str(),  RADIO_IFACE_CMD_SET_SQUELCH_LEVEL, &(_this->tempvals.squelch), NULL);
+                       
+                    } else {
+                         _this->tempvals.scanning=_this->aaedcfg->selected->frequencies;
+                         _this->tempvals.scan_index=_this->tempvals.scanning;
+                         core::modComManager.callInterface(selected_radio.c_str(),  RADIO_IFACE_CMD_GET_SQUELCH_LEVEL, NULL, &(_this->tempvals.squelch));
+                    }
+               }
+               
+               // scanner controls go here
+                     // Scanner Linger
+//                     strcpy (editNameBuf, _this->tempvals.temp_freq.name.c_str());
+                     scannerbuf.linger = _this->aaedcfg->scanner.linger;
+                     ImGui::Text("Linger");
+                     ImGui::SameLine();
+                     if (ImGui::InputInt(("##aaed_mgr_edit_scanner_linger" + _this->name).c_str(), &scannerbuf.linger, ImGuiInputTextFlags_CharsDecimal)) {
+                          _this->aaedcfg->scanner.linger = scannerbuf.linger;
+                          if (_this->aaedcfg->scanner.linger > 1000) {
+                              _this->aaedcfg->scanner.linger =1000;
+                          }
+                          if (_this->aaedcfg->scanner.linger < 0) {
+                              _this->aaedcfg->scanner.linger =0;
+                          }
+                          saveConfig(_this->aaedcfg, NULL);
+                     }
+//                     ImGui::SameLine();
+                     // Scanner Hold     
+                     scannerbuf.hold = _this->aaedcfg->scanner.hold;
+                     ImGui::Text("Hold ");
+                     ImGui::SameLine();
+                     if (ImGui::InputInt(("##aaed_mgr_edit_scanner_hold" + _this->name).c_str(), &scannerbuf.hold, ImGuiInputTextFlags_CharsDecimal)) {
+                          _this->aaedcfg->scanner.hold = scannerbuf.hold;
+                          if (_this->aaedcfg->scanner.hold > 25000) {
+                              _this->aaedcfg->scanner.hold =25000;
+                          }
+                          if (_this->aaedcfg->scanner.hold !=0) {
+                               if (_this->aaedcfg->scanner.hold < _this->aaedcfg->scanner.linger) {
+                                    _this->aaedcfg->scanner.hold =_this->aaedcfg->scanner.linger;
+                               }
+                          }
+                          saveConfig(_this->aaedcfg, NULL);
+                     }
+//                     ImGui::SameLine();
+                     // Scanner Threshold 
+                     scannerbuf.threshold = _this->aaedcfg->scanner.threshold;
+                     ImGui::Text("SNR ");
+                     ImGui::SameLine();
+                     if (ImGui::InputInt(("##aaed_mgr_edit_scanner_snr" + _this->name).c_str(), &scannerbuf.threshold, ImGuiInputTextFlags_CharsDecimal)) {
+                          _this->aaedcfg->scanner.threshold = scannerbuf.threshold;
+                          if (_this->aaedcfg->scanner.threshold > 90) {
+                              _this->aaedcfg->scanner.threshold =90;
+                          }
+                          if (_this->aaedcfg->scanner.threshold < 0) {
+                              _this->aaedcfg->scanner.threshold =0;
+                          }
+                          saveConfig(_this->aaedcfg, NULL);
+                     }
+
+               
+               
+               // end scanner controls
+               
+               // scanningc logic 
+               int squelch;
+               if (_this->tempvals.scanning) {
+                    int snr;
+                    int mode = (int)(_this->tempvals.scan_index->mode);
+                    float bandwidth = _this->tempvals.scan_index->bandwidth;
+                    std::chrono::time_point currenttime = std::chrono::high_resolution_clock::now();
+                    std::string selected_radio = gui::waterfall.selectedVFO;
+                    if (selected_radio.empty()) {
+                         selected_radio="Radio";
+                    }
+                    if (_this->tempvals.tune_time > _this->aaedcfg->scanner.linger) {
+                         core::modComManager.callInterface(selected_radio.c_str(),  RADIO_IFACE_CMD_SET_MODE, &mode, NULL);
+                         core::modComManager.callInterface(selected_radio.c_str(),  RADIO_IFACE_CMD_SET_BANDWIDTH, &bandwidth, NULL);
+                         tuner::tune(tuner::TUNER_MODE_CENTER, selected_radio.c_str(), _this->tempvals.scan_index->frequency);
+                         _this->tempvals.tune_time=0;
+                         _this->tempvals.linger_time=0;
+                         if (_this->tempvals.scan_index->next) {
+                              _this->tempvals.scan_index=_this->tempvals.scan_index->next;
+                         } else {
+                              _this->tempvals.scan_index = _this->tempvals.scanning;
+                         }
+                    } else {
+                         _this->tempvals.tune_time++;
+                         _this->tempvals.linger_time++;
+                    }
+                    if (_this->tempvals.tune_time >= 2) {
+                    
+//                         printf("Getting Radio Data: ");
+                         squelch = gui::waterfall.selectedVFOSNR;
+//                         printf ("%i -- %i\n", squelch, _this->aaedcfg->scanner.threshold);
+                         if (squelch >= _this->aaedcfg->scanner.threshold) {
+                              core::modComManager.callInterface(selected_radio.c_str(),  RADIO_IFACE_CMD_SET_SQUELCH_LEVEL, &(_this->tempvals.squelch), NULL);
+                              if (!_this->aaedcfg->scanner.hold || (_this->tempvals.linger_time < _this->aaedcfg->scanner.hold)) {
+                                   _this->tempvals.tune_time=0;
+                              }
+                         } else {
+                              float temp = 0;
+                             core::modComManager.callInterface(selected_radio.c_str(),  RADIO_IFACE_CMD_SET_SQUELCH_LEVEL, &temp, NULL);
+                         }
+                    }
+               }
+               // end scanning logic
+         
                // BOOKMARK LIST TABLE
                
                if (ImGui::BeginTable(("freq_manager_bkm_table" + _this->name).c_str(), 3, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 200))) {
@@ -1025,6 +1196,7 @@ class aaed_freq_manager : public ModuleManager::Instance {
                               if (ImGui::IsMouseDoubleClicked(0) && ImGui::IsItemHovered()) {
                                    int mode = (int)(current_bookmark->mode);
                                    float bandwidth = current_bookmark->bandwidth;
+                                   _this->tempvals.scanning=0;
                                    std::string selected_radio = gui::waterfall.selectedVFO;
                                    if (selected_radio.empty()) {
                                         selected_radio="Radio";
@@ -1050,12 +1222,14 @@ class aaed_freq_manager : public ModuleManager::Instance {
 
                // bookmark import
                if (ImGui::Button(("Import##_aaed_mgr_import_bkm_" + _this->name).c_str())) {
+                    _this->tempvals.scanning=0;
                     _this->importDialog = new pfd::open_file("Import bookmarks", "", { "JSON Files (*.json)", "*.json", "All Files", "*" }, pfd::opt::none);
                }
                ImGui::SameLine();
                
                // bookmark export
                if (ImGui::Button(("Export##_aaed_mgr_export_bkm_" + _this->name).c_str())) {
+                    _this->tempvals.scanning=0;
                     _this->exportDialog = new pfd::save_file("Export bookmarks", "", { "JSON Files (*.json)", "*.json", "All Files", "*" }, pfd::opt::none);
                }
                

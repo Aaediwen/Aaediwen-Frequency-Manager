@@ -7,7 +7,6 @@ This frequency manager includes:
 	Color coded frequency lists
 	reduced file I/O versus the default
 	frequency import and export compatable with the default manager
-	Added Frequency Scanning
 
 To build, add the aaed frequency manager under the misc modules in the SDR++ source tree, and edit the SDR++ CMakeLists.txt to include the aaed_frequency_manager directory
 Then build SDR++ as normal.
@@ -15,8 +14,8 @@ Then build SDR++ as normal.
 
 Linux: 
 
- tar -xf ../master.tar.gz
- cd SDRPlusPlus-master/
+ tar -xf ../nightly.tar.gz
+ cd SDRPlusPlus-nightly/
  cp -r Source/aaed_freq_manager ./misc_modules/
   add the following line to CMakeLists.txt:
 	add_subdirectory("misc_modules/aaed_freq_manager")
@@ -31,19 +30,6 @@ cmake ..
 make -j<N>
 
 
-Windows:
- unzip -xf ../master.zip
- cd SDRPlusPlus-master/
- cp -r Source/aaed_freq_manager ./misc_modules/
-  add the following line to CMakeLists.txt:
-	add_subdirectory("misc_modules/aaed_freq_manager")
-
-mkdir build
-cd build
-cmake .. "-DCMAKE_TOOLCHAIN_FILE=<vcpkg install directory>/scripts/buildsystems/vcpkg.cmake"
-cmake --build . --config Release
-
-cmake .. "-DCMAKE_TOOLCHAIN_FILE=D:/vcpkg/scripts/buildsystems/vcpkg.cmake"
 I have tested this under Windows and Linux. I do not own a Mac to test on.
 
 One notable feature I am considering adding is support for sharing a list of frequencies between multiple instances, possibly hosted via a SQL engine, and then also support falling back to a local config if it can't talk to the database.
